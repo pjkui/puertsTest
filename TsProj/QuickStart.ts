@@ -1,9 +1,9 @@
 //部署:npm run build
 
-import {UnityEngine, PuertsTest, System} from 'csharp'
+import {UnityEngine, PuertsTest, System, FairyGUI} from 'csharp'
 import {$ref, $unref, $generic, $promise, $typeof} from 'puerts'
 import './ExtensionDecl'
-
+import {UI_testFairyTS} from "./UI_testFairyTS"
 //静态函数
 UnityEngine.Debug.Log('hello world');
 
@@ -88,6 +88,12 @@ obj.Extension2(go);
 let obj1 = new PuertsTest.BaseClass1();
 obj.Extension2(obj1);
 
+UnityEngine.Debug.Log("Init fairy")
+
+var item = UI_testFairyTS.CreateInstance();
+FairyGUI.GRoot.inst.AddChild(item);
+item.MakeFullScreen();
+item.visible = true;
 
 //typescript和c#的async，await联动，为了不在低版本的Unity下报错，先注释，c#7.3以上版本可以打开这些注释
 /*async function asyncCall() {
@@ -99,3 +105,6 @@ obj.Extension2(obj1);
     console.log('file length is ,' + result2);
 }
 asyncCall().catch(e => console.error("catch:" + e));*/
+
+
+

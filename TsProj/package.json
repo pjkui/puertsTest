@@ -5,5 +5,9 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "postbuild": "node copyJsFile.js output ../Assets/Examples/05_Typescript/Resources"
+  },
+  "dependencies": {
+    "tsc": "^2.0.3",
+    "typescript": "^4.3.5"
   }
 }
